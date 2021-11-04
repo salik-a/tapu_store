@@ -1,5 +1,5 @@
 export default {
     basket: [],
-    prices: [],
+    prices: [0],
 
 }

@@ -5,7 +5,7 @@ const Container = styled.View`
   background-color: white;
   margin: 5px;
   background-color: white;
-  padding: 10px;
+  padding: 10px
 
 
 `;
@@ -23,7 +23,7 @@ const Description = styled.Text`
   font-size: 14px;
   color: gray;
   marginVertical:10px;
-  width:220px
+  width:200px
 
 `;
 
@@ -32,7 +32,7 @@ const NumberText = styled.Text`
   color: black;
   font-weight: 300;
   marginRight: 15px;
-  marginLeft: 5px;s
+  marginLeft: 5px;
 `;
 
 const RowContainer = styled.View`

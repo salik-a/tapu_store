@@ -35,8 +35,7 @@ const ProductCard = ({ data, onPress, idList }) => {
                 <RowContainer>
                     <Vector source={require('../../assets/Vector.png')} />
                     <RedText>
-                        {idList.includes(data.id) ? "SEPETTE" : "SEPETE EKLE"}
-
+                        {idList.includes(data.id) ? "SEPETTEN ÇIKAR" : "SEPETE EKLE"}
                     </RedText>
                 </RowContainer>
             </BottomContainer>

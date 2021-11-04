@@ -1,10 +1,14 @@
-import { StyleSheet } from "react-native";
 
-export default StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: "white"
-    }
-})
+import styled from 'styled-components/native';
+
+const Container = styled.View`
+    background-color: white;
+    flex:1 
+
+
+`;
+const List = styled.FlatList`
+  
+`;
+
+export { Container, List }

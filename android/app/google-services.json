@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "203837938572",
+    "project_id": "tapu-8b24f",
+    "storage_bucket": "tapu-8b24f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:203837938572:android:8d7184d54ea16318fe94a9",
+        "android_client_info": {
+          "package_name": "com.tapu_store"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "203837938572-k03bv9s8gan2v482cqqk3tf9m6qq7du0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyByPsTpcdfuZa7KasDWf-a52R-xIRcwk4M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "203837938572-k03bv9s8gan2v482cqqk3tf9m6qq7du0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

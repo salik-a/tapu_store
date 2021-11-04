@@ -45,7 +45,7 @@ export default function App() {
             ),
           }} />
         <Tab.Screen
-          name="Login"
+          name="Account"
           component={LoginStackScreen}
           options={{
             tabBarLabel: 'Account',

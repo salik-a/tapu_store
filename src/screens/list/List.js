@@ -1,21 +1,17 @@
 import React from 'react';
-import { Text, View, FlatList } from 'react-native';
+import { Text, View } from 'react-native';
 import ProductCard from '../../components/productCard/ProductCard';
-import styles from "./ListStyle"
 import useFetch from '../../hooks/useFetch';
 import { useDispatch, useSelector } from "react-redux";
-
+import { Container, List } from './ListStyle';
+import TotalCard from '../../components/totalCard/TotalCard';
 
 const ListScreen = () => {
 
     const idList = useSelector(selector => selector.basket);
-    const priceList = useSelector(selector => selector.prices);
-    console.log("priceList:", priceList)
-    console.log("idList:", idList)
     const dispatch = useDispatch()
 
     //when the page opens, we pull the data from the url address
-
     const { error, loading, data } = useFetch("https://61827de284c2020017d89eba.mockapi.io/tapu/products")
 
     // loading part is displayed while loading data
@@ -57,16 +53,15 @@ const ListScreen = () => {
     );
 
     return (
-        <View style={styles.container}>
-
-            <FlatList
+        <Container>
+            <List
                 data={data}
                 renderItem={renderItem}
                 keyExtractor={(item, index) => index.toString()}
-
             />
+            <TotalCard />
 
-        </View>
+        </Container>
     )
 }
 
