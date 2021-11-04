@@ -1,17 +1,16 @@
 import React from 'react';
 import styled from 'styled-components/native';
 
-const Container = styled.TouchableOpacity`
-  
+const Container = styled.View`
   background-color: white;
-  width: 100%;
+  margin: 5px;
+  background-color: white;
   padding: 10px;
+
 
 `;
 const InnerContainer = styled.View`
-  
-  background-color: white;
-  
+
 `;
 const Title = styled.Text`
   font-size: 20px;
@@ -24,6 +23,8 @@ const Description = styled.Text`
   font-size: 14px;
   color: gray;
   marginVertical:10px;
+  width:220px
+
 `;
 
 const NumberText = styled.Text`
@@ -40,9 +41,9 @@ const RowContainer = styled.View`
 
 const Image = styled.Image`
   borderRadius: 20px;
-  width:90px;
-  height:90px;
-  marginHorizontal:30px;
+  width:110px;
+  height:110px;
+  marginHorizontal:25px;
 
 `;
 
@@ -58,7 +59,6 @@ const Vector = styled.Image`
 
   width:25px;
   height:25px;
-  backgroundColor: white;
   resizeMode: contain;
 `;
 

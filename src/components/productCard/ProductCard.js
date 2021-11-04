@@ -1,37 +1,48 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Dimensions, View } from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { Container, Title, Description, NumberText, RowContainer, Image, InnerContainer, RedText, Vector, BottomContainer } from "./ProductCardStyled"
-const ProductCard = ({ title, description, image, star, distance }) => {
+
+
+
+const ProductCard = ({ data, onPress, idList }) => {
+
     return (
+
+
         <Container>
             <RowContainer>
                 <Image source={{
-                    uri: 'https://reactnative.dev/img/tiny_logo.png',
+                    uri: `${data.image}`,
                 }} />
                 <InnerContainer>
-                    <Title>Villa Bosphorus</Title>
-                    <Description>Lorem İpsum Sit Dolor Met</Description>
+                    <Title>{data.title}</Title>
+                    <Description>{data.detail}</Description>
                     <RowContainer>
                         <RowContainer>
                             <FontAwesome name="star-half-empty" color={"#ECD03F"} size={24} />
-                            <NumberText>3.9</NumberText>
+                            <NumberText>{data.star}</NumberText>
                         </RowContainer>
                         <RowContainer>
                             <Ionicons name="location" color={"#0DAFC0"} size={22} />
-                            <NumberText>3.7 km</NumberText>
+                            <NumberText>{data.distance} km</NumberText>
                         </RowContainer>
                     </RowContainer>
                 </InnerContainer>
             </RowContainer>
-            <BottomContainer>
+            <BottomContainer onPress={onPress}>
                 <RowContainer>
                     <Vector source={require('../../assets/Vector.png')} />
-                    <RedText>SEPETE EKLE</RedText>
+                    <RedText>
+                        {idList.includes(data.id) ? "SEPETTE" : "SEPETE EKLE"}
+
+                    </RedText>
                 </RowContainer>
             </BottomContainer>
         </Container>
+
+
     );
 };
 
