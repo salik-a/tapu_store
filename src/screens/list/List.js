@@ -1,11 +1,19 @@
-import * as React from 'react';
-import { Button, Text, View } from 'react-native';
+import React from 'react';
+import { Text, View } from 'react-native';
+import ProductCard from '../../components/productCard/ProductCard';
+import styles from "./ListStyle"
+import useFetch from '../../hooks/useFetch';
 
-export default function ListScreen() {
+const ListScreen = () => {
     return (
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <View style={styles.container}>
             <Text>List screen</Text>
+            <ProductCard />
+            <ProductCard />
+            <ProductCard />
 
         </View>
     );
-}
+};
+
+export default ListScreen;
