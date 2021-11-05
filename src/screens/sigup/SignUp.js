@@ -1,73 +1,113 @@
 import React, { useState } from "react";
-import { View, Text, SafeAreaView } from "react-native";
-import styles from './SignUpStyle'
+import { ButtonsContainer, Container, Header, TopContainer, Form, Picker, Name, Text } from './SignUpStyled'
 import Input from "../../components/input/Input"
 import Button from "../../components/button/Button"
 import { Formik } from "formik";
 import auth from "@react-native-firebase/auth"
+import DropDownPicker from 'react-native-dropdown-picker';
 
 
-const Sign = ({ navigation }) => {
+const SignUp = ({ navigation }) => {
+    const [open, setOpen] = useState(false);
+    const [value, setValue] = useState("TR");
+
+
+    const items = [
+        { label: 'Türkçe', value: 'TR' },
+        { label: 'English', value: 'EN' }
+    ];
 
     const initialForm = {
         usermail: "",
         password: "",
-        passwordRepeat: ""
+        username: ""
     }
-    const handleSign = async (formValues) => {
-        if (formValues.password !== formValues.passwordRepeat) {
 
-        } else {
+    const handleLogin = async (formValues) => {
+        try {
 
-            try {
-                await auth().createUserWithEmailAndPassword(formValues.usermail, formValues.password);
-                console.log("formValues", formValues);
+            await auth().createUserWithEmailAndPassword(formValues.usermail, formValues.password)
+            await auth().signInWithEmailAndPassword(formValues.usermail, formValues.password)
+            const update = {
+                displayName: formValues.username,
+            };
+            await auth().currentUser.updateProfile(update);
+            navigation.navigate("Login")
 
-            } catch (error) {
-
-                console.log("error", error)
-            }
+        } catch (error) {
+            console.log(error)
         }
     }
 
     return (
-        <SafeAreaView style={styles.container}>
+        <Container >
+            <TopContainer>
+                <Header>Account</Header>
+            </TopContainer>
+
+
             <Formik
                 initialValues={initialForm}
-                onSubmit={values => handleSign(values)}
+                onSubmit={values => handleLogin(values)}
             >
-
-                {({ handleChange, handleSubmit, values }) => (
-                    <>
+                {({ handleSubmit, values, handleChange }) => (
+                    <Form>
                         <Input
-                            placeholder="E-Postanızı Giriniz"
+                            placeholder="E-Mail"
                             onChangeText={handleChange('usermail')}
                             value={values.usermail}
                         />
                         <Input
-                            placeholder="Şifrenizi Giriniz"
+                            placeholder="Password"
                             onChangeText={handleChange('password')}
                             value={values.password}
                             isSecure={true}
                         />
                         <Input
-                            placeholder="Şifrenizi  Tekrar Giriniz"
-                            onChangeText={handleChange('passwordRepeat')}
-                            value={values.passwordRepeat}
-                            isSecure={true}
-                        />
-                        <View style={styles.buttons}>
-                            <Button title="Kayıt Ol" bgColor='papayawhip' onPress={handleSubmit} />
-                            <Button title="Geri" bgColor='papayawhip' onPress={() => navigation.goBack()} />
-                        </View>
-                    </>
-                )
+                            placeholder="Username"
+                            onChangeText={handleChange('username')}
+                            value={values.username}
 
-                }
+                        />
+                        <Picker>
+                            <DropDownPicker
+                                open={open}
+                                value={value}
+                                items={items}
+                                setOpen={() => setOpen(!open)}
+                                setValue={setValue}
+
+                                dropDownContainerStyle={{
+                                    width: "100%",
+                                    alignSelf: 'center',
+                                    position: 'relative',
+                                    top: 0,
+                                    borderColor: "white"
+                                }}
+                                listMode="SCROLLVIEW"
+                                style={{
+                                    height: 40,
+                                    alignSelf: 'center',
+                                    marginTop: 10,
+                                    backgroundColor: "white",
+                                    borderColor: "white",
+
+                                }}
+                                labelStyle={{
+                                    fontSize: 16,
+                                }}
+
+                            />
+                        </Picker>
+                        <ButtonsContainer>
+                            <Button title="Sign Up" onPress={handleSubmit} bgColor='#E82223' />
+                        </ButtonsContainer>
+                    </Form>
+                )}
             </Formik>
 
-        </SafeAreaView>
+        </Container>
     );
 };
 
-export default Sign;
+export default SignUp;

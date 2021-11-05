@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ButtonsContainer, Container, Header, TopContainer, Form, Picker, Name, Text } from './LoginStyled'
 import Input from "../../components/input/Input"
 import Button from "../../components/button/Button"
@@ -11,7 +11,6 @@ const Login = ({ navigation }) => {
     const [user, setUser] = useState(auth().currentUser);
     const [open, setOpen] = useState(false);
     const [value, setValue] = useState("TR");
-    const [form, setForm] = useState({});
 
     const items = [
         { label: 'Türkçe', value: 'TR' },
@@ -26,8 +25,6 @@ const Login = ({ navigation }) => {
     const handleLogin = async (formValues) => {
         try {
             await auth().signInWithEmailAndPassword(formValues.usermail, formValues.password)
-            setForm(formValues)
-            console.log(form)
             setUser(auth().currentUser)
         } catch (error) {
             console.log(error)
@@ -42,6 +39,7 @@ const Login = ({ navigation }) => {
             console.log(error)
         }
     }
+    console.log(user)
     return (
         <Container >
             <TopContainer>
@@ -106,9 +104,9 @@ const Login = ({ navigation }) => {
             ) : (
                 <Container>
                     <TopContainer>
-                        <Name>Melih Çalışkan </Name>
-                        <Text>E-mail: {form.usermail}</Text>
-                        <Text>Password: {form.password}</Text>
+                            <Name>{user.displayName}</Name>
+                            <Text>E-mail: {user.email}</Text>
+                            <Text>Password: ******</Text>
                         <Text>Current locale: {value} </Text>
                     </TopContainer>
                     <Picker>
@@ -142,7 +140,7 @@ const Login = ({ navigation }) => {
                         />
                     </Picker>
                     <ButtonsContainer>
-                        <Button title="Log Out" onPress={handleLogOut} bgColor='#BBC3CF' />
+                            <Button title="Log Out" onPress={handleLogOut} bgColor='#BBC3CF' textColor borderColor />
 
                     </ButtonsContainer>
                 </Container>

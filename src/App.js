@@ -28,12 +28,21 @@ const Tab = createBottomTabNavigator();
 export default function App() {
   return (
     <NavigationContainer >
-      <Tab.Navigator screenOptions={{
+      <Tab.Navigator
+        screenOptions={{
         headerShown: false,
         tabBarActiveTintColor: 'tomato',
-        tabBarInactiveTintColor: 'gray',
+          tabBarInactiveTintColor: 'gray',
+          position: 'absolute'
       }}
-        style={{ position: 'absolute' }}>
+        style={{ position: 'absolute' }}
+        tabBarOptions={{
+          keyboardHidesTabBar: true,
+
+        }}
+
+      >
+
         <Tab.Screen
           name="List"
           component={ListScreen}
