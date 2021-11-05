@@ -5,16 +5,18 @@ const ButtonContainer = styled.TouchableOpacity`
   width: 85%;
   height: 50px;
   padding: 12px;
-  border-radius: 15px;
-  background-color: ${props => props.bgColor};
+  border-radius: 12px;
+  background-color: ${props => props.bgColor };
   align-self: center;
   align-Items: center;
   justify-content: center;
+  borderColor: ${props => props.borderColor};
+  borderWidth: 1px;
 `;
 const ButtonText = styled.Text`
   font-size: 14px;
   text-align: center;
-  color: white;
+  color: ${props => props.textColor};
 `;
 
 

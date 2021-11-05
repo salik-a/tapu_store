@@ -1,7 +1,7 @@
 import React from "react";
 import { InputContainer, Input } from './InputStyled'
 
-const TextInput = ({ placeholder, onChangeText, value, isSecure }) => {
+const TextInput = ({ placeholder, onChangeText, value, isSecure, onBlur }) => {
     return (
         <InputContainer >
             <Input
@@ -9,6 +9,7 @@ const TextInput = ({ placeholder, onChangeText, value, isSecure }) => {
                 onChangeText={onChangeText}
                 value={value}
                 secureTextEntry={isSecure}
+                onBlur={onBlur}
             />
         </InputContainer>
     );

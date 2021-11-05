@@ -30,16 +30,14 @@ export default function App() {
     <NavigationContainer >
       <Tab.Navigator
         screenOptions={{
+          keyboardHidesTabBar: true,
         headerShown: false,
         tabBarActiveTintColor: 'tomato',
           tabBarInactiveTintColor: 'gray',
-          position: 'absolute'
-      }}
-        style={{ position: 'absolute' }}
-        tabBarOptions={{
-          keyboardHidesTabBar: true,
+          tabBarStyle: [{ position: 'absolute' }]
 
         }}
+
 
       >
 

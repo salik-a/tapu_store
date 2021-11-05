@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { ButtonsContainer, Container, Header, TopContainer, Form, Picker, Name, Text } from './SignUpStyled'
+import { ButtonsContainer, Container, Header, TopContainer, Form, Picker, Name, Text, Warn } from './SignUpStyled'
+import { Alert } from "react-native";
 import Input from "../../components/input/Input"
 import Button from "../../components/button/Button"
 import { Formik } from "formik";
 import auth from "@react-native-firebase/auth"
 import DropDownPicker from 'react-native-dropdown-picker';
-
+import * as Yup from 'yup';
 
 const SignUp = ({ navigation }) => {
     const [open, setOpen] = useState(false);
@@ -23,6 +24,18 @@ const SignUp = ({ navigation }) => {
         username: ""
     }
 
+    const SignupSchema = Yup.object().shape({
+        password: Yup.string()
+            .min(4, 'Too Short!')
+            .required('Required'),
+        usermail: Yup.string()
+            .email('Invalid email')
+            .required('Required'),
+        username: Yup.string()
+            .min(3, 'Too Short!')
+            .required('Required'),
+    });
+
     const handleLogin = async (formValues) => {
         try {
 
@@ -36,6 +49,10 @@ const SignUp = ({ navigation }) => {
 
         } catch (error) {
             console.log(error)
+            Alert.alert(
+                "Alert",
+                "Sign Up Failed"
+            );
         }
     }
 
@@ -49,26 +66,38 @@ const SignUp = ({ navigation }) => {
             <Formik
                 initialValues={initialForm}
                 onSubmit={values => handleLogin(values)}
+                validationSchema={SignupSchema}
             >
-                {({ handleSubmit, values, handleChange }) => (
+                {({ handleSubmit, values, handleChange, errors, touched, isValid, setFieldTouched }) => (
                     <Form>
                         <Input
                             placeholder="E-Mail"
                             onChangeText={handleChange('usermail')}
                             value={values.usermail}
+                            onBlur={() => setFieldTouched('usermail')}
                         />
+                        {touched.usermail && errors.usermail &&
+                            <Warn>{errors.usermail}</Warn>
+                        }
                         <Input
                             placeholder="Password"
                             onChangeText={handleChange('password')}
                             value={values.password}
                             isSecure={true}
+                            onBlur={() => setFieldTouched('password')}
                         />
+                        {touched.password && errors.password &&
+                            <Warn>{errors.password}</Warn>
+                        }
                         <Input
                             placeholder="Username"
                             onChangeText={handleChange('username')}
                             value={values.username}
-
+                            onBlur={() => setFieldTouched('username')}
                         />
+                        {touched.username && errors.username &&
+                            <Warn>{errors.username}</Warn>
+                        }
                         <Picker>
                             <DropDownPicker
                                 open={open}
@@ -100,7 +129,7 @@ const SignUp = ({ navigation }) => {
                             />
                         </Picker>
                         <ButtonsContainer>
-                            <Button title="Sign Up" onPress={handleSubmit} bgColor='#E82223' />
+                            <Button title="Sign Up" onPress={handleSubmit} secondary='#E82223' primary='#BBC3CF' textColor='white' borderColor='#E82223' borderColor='rgba(0, 0, 0, .0)' disabled={!(values.usermail !== '' && isValid === true)} />
                         </ButtonsContainer>
                     </Form>
                 )}

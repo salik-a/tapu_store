@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { ButtonsContainer, Container, Header, TopContainer, Form, Picker, Name, Text } from './LoginStyled'
+import { ButtonsContainer, Container, Header, TopContainer, Form, Picker, Name, Text, Warn, BottomContainer } from './LoginStyled'
 import Input from "../../components/input/Input"
 import Button from "../../components/button/Button"
 import { Formik } from "formik";
 import auth from "@react-native-firebase/auth"
 import DropDownPicker from 'react-native-dropdown-picker';
-
-
+import * as Yup from 'yup';
+import { Alert } from "react-native";
 const Login = ({ navigation }) => {
     const [user, setUser] = useState(auth().currentUser);
     const [open, setOpen] = useState(false);
@@ -20,7 +20,14 @@ const Login = ({ navigation }) => {
     const initialForm = {
         usermail: "",
         password: ""
-    }
+    };
+
+    const SignupSchema = Yup.object().shape({
+        password: Yup.string()
+            .min(4, 'Too Short!')
+            .required('Required'),
+        usermail: Yup.string().email('Invalid email').required('Required'),
+    });
 
     const handleLogin = async (formValues) => {
         try {
@@ -28,6 +35,10 @@ const Login = ({ navigation }) => {
             setUser(auth().currentUser)
         } catch (error) {
             console.log(error)
+            Alert.alert(
+                "Alert",
+                "Sign In Failed"
+            );
         }
     }
     const handleLogOut = async () => {
@@ -50,20 +61,29 @@ const Login = ({ navigation }) => {
                 <Formik
                     initialValues={initialForm}
                     onSubmit={values => handleLogin(values)}
+                    validationSchema={SignupSchema}
                 >
-                    {({ handleSubmit, values, handleChange }) => (
+                    {({ handleSubmit, values, handleChange, errors, touched, isValid, setFieldTouched }) => (
                         <Form>
                             <Input
                                 placeholder="E-Mail"
                                 onChangeText={handleChange('usermail')}
                                 value={values.usermail}
+                                onBlur={() => setFieldTouched('usermail')}
                             />
+                            {touched.usermail && errors.usermail &&
+                                <Warn>{errors.usermail}</Warn>
+                            }
                             <Input
                                 placeholder="Password"
                                 onChangeText={handleChange('password')}
                                 value={values.password}
                                 isSecure={true}
+                                onBlur={() => setFieldTouched('password')}
                             />
+                            {touched.password && errors.password &&
+                                <Warn>{errors.password}</Warn>
+                            }
                             <Picker>
                                 <DropDownPicker
                                     open={open}
@@ -95,8 +115,8 @@ const Login = ({ navigation }) => {
                                 />
                             </Picker>
                             <ButtonsContainer>
-                                <Button title="Sign In" onPress={handleSubmit} bgColor='#E82223' />
-                                <Button title="Sign Up" onPress={() => navigation.navigate("SignUp")} bgColor='#BBC3CF' />
+                                <Button title="Sign In" onPress={handleSubmit} secondary='#E82223' primary='#BBC3CF' textColor='white' borderColor='rgba(0, 0, 0, .0)' disabled={!(values.usermail !== '' && isValid === true)} />
+                                <Button title="Sign Up" onPress={() => navigation.navigate("SignUp")} primary='#BBC3CF' secondary='#E82223' textColor='white' borderColor='rgba(0, 0, 0, .0)' disabled={false} />
                             </ButtonsContainer>
                         </Form>
                     )}
@@ -139,10 +159,10 @@ const Login = ({ navigation }) => {
 
                         />
                     </Picker>
-                    <ButtonsContainer>
-                            <Button title="Log Out" onPress={handleLogOut} bgColor='#BBC3CF' textColor borderColor />
+                        <BottomContainer>
+                            <Button title="Log Out" onPress={handleLogOut} primary='#BBC3CF' secondary='white' textColor='#E82223' borderColor='#E82223' disabled={false} />
 
-                    </ButtonsContainer>
+                        </BottomContainer>
                 </Container>
             )}
 

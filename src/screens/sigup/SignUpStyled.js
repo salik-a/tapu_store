@@ -53,6 +53,12 @@ const Form = styled.View`
 
     
 `;
+const Warn = styled.Text`
+    fontSize: 12px;
+    color: #FF0D10;
+    width:85%;
+    align-self: center;
+`;
 
 
-export { ButtonsContainer, Container, Header, TopContainer, Form, Picker, Name, Text }
+export { ButtonsContainer, Container, Header, TopContainer, Form, Picker, Name, Text, Warn }

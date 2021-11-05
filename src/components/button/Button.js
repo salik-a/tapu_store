@@ -1,9 +1,13 @@
 import React from "react";
 import { ButtonContainer, ButtonText } from './ButtonStyled'
 
-const Button = ({ onPress, bgColor, title }) => (
-    <ButtonContainer onPress={onPress} bgColor={bgColor}>
-        <ButtonText>{title}</ButtonText>
-    </ButtonContainer>
-);
+const Button = ({ onPress, primary, secondary, title, textColor, borderColor, disabled }) => {
+
+    const color = disabled ? primary : secondary;
+    return (
+        <ButtonContainer onPress={onPress} bgColor={color} borderColor={borderColor} disabled={disabled}>
+            <ButtonText textColor={textColor} >{title}</ButtonText>
+        </ButtonContainer>
+    );
+};
 export default Button;

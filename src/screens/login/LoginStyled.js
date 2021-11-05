@@ -48,11 +48,24 @@ const Text = styled.Text`
 
 
 `;
+const Warn = styled.Text`
+    fontSize: 12px;
+    color: #FF0D10;
+    width:85%;
+    align-self: center;
+`;
 
 const Form = styled.View`
 
     
 `;
 
+const BottomContainer = styled.View`
 
-export { ButtonsContainer, Container, Header, TopContainer, Form, Picker, Name, Text }
+    flex: 1;
+    justifyContent: flex-end;
+    marginBottom: 60px;
+`;
+
+
+export { ButtonsContainer, Container, Header, TopContainer, Form, Picker, Name, Text, Warn, BottomContainer }
