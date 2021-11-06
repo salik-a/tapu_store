@@ -8,6 +8,7 @@ import { Container, Title, Description, NumberText, RowContainer, Image, InnerCo
 
 const ProductCard = ({ data, onPress, idList }) => {
 
+
     return (
 
 
