@@ -10,9 +10,7 @@ const ProductCard = ({ data, onPress, idList }) => {
 
 
     return (
-
-
-        <Container>
+        <Container testID="product-card">
             <RowContainer>
                 <Image source={{
                     uri: `${data.image}`,
@@ -32,10 +30,10 @@ const ProductCard = ({ data, onPress, idList }) => {
                     </RowContainer>
                 </InnerContainer>
             </RowContainer>
-            <BottomContainer onPress={onPress}>
+            <BottomContainer testID="sepete-ekle" onPress={onPress}>
                 <RowContainer>
                     <Vector source={require('../../assets/Vector.png')} />
-                    <RedText>
+                    <RedText testID="button-text">
                         {idList.includes(data.id) ? "SEPETTEN ÇIKAR" : "SEPETE EKLE"}
                     </RedText>
                 </RowContainer>

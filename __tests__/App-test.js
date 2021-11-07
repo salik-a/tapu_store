@@ -1,14 +1,12 @@
-/**
- * @format
- */
-
-import 'react-native';
 import React from 'react';
-import App from '../App';
+import 'react-native';
+import App from '../src/App';
+import { fireEvent, render, waitFor } from '@testing-library/react-native'
+import { TestScheduler } from '@jest/core';
 
-// Note: test renderer must be required after react-native.
-import renderer from 'react-test-renderer';
 
-it('renders correctly', () => {
-  renderer.create(<App />);
+test("should match with snapshot", () => {
+  const comp = render(<App />)
+  expect(comp).toMatchSnapshot();
+
 });

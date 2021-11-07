@@ -2,11 +2,12 @@ import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Entypo from 'react-native-vector-icons/Entypo';
 import LoginScreen from './screens/login/Login';
 import SignUpScreen from './screens/sigup/SignUp';
 import ListScreen from './screens/list/List';
+import { Image } from 'react-native';
 
 
 
@@ -32,8 +33,8 @@ export default function App() {
         screenOptions={{
           keyboardHidesTabBar: true,
         headerShown: false,
-        tabBarActiveTintColor: 'tomato',
-          tabBarInactiveTintColor: 'gray',
+
+
           tabBarStyle: [{ position: 'absolute' }]
 
         }}
@@ -48,7 +49,7 @@ export default function App() {
             tabBarLabel: 'List',
             tabBarIcon: () => (
 
-              <Entypo name="home" color={"black"} size={28} />
+              <Image source={require('./assets/list.png')} style={{ width: 24, height: 24, }} />
             ),
           }} />
         <Tab.Screen
@@ -57,7 +58,7 @@ export default function App() {
           options={{
             tabBarLabel: 'Account',
             tabBarIcon: () => (
-              <FontAwesome name="user-circle" color={"black"} size={28} />
+              <MaterialCommunityIcons name="account" color={"#4D4D4D"} size={34} />
             ),
           }}
         />

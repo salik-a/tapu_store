@@ -5,8 +5,8 @@ const Button = ({ onPress, primary, secondary, title, textColor, borderColor, di
 
     const color = disabled ? primary : secondary;
     return (
-        <ButtonContainer onPress={onPress} bgColor={color} borderColor={borderColor} disabled={disabled}>
-            <ButtonText textColor={textColor} >{title}</ButtonText>
+        <ButtonContainer testID="button-touchable" onPress={onPress} bgColor={color} borderColor={borderColor} disabled={disabled}>
+            <ButtonText testID="button-title" textColor={textColor} >{title}</ButtonText>
         </ButtonContainer>
     );
 };

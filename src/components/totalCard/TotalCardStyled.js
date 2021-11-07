@@ -4,6 +4,7 @@ import styled from 'styled-components/native';
 const Container = styled.View`
     paddingVertical:10px;
     paddingHorizontal:35px;
+    marginBottom: 50px;
 `;
 
 const Header = styled.Text`

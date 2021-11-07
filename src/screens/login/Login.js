@@ -137,8 +137,8 @@ export default class Login extends React.Component {
                                 />
                             </Picker>
                             <ButtonsContainer>
-                                <Button title="Sign In" onPress={handleSubmit} secondary='#E82223' primary='#BBC3CF' textColor='white' borderColor='rgba(0, 0, 0, .0)' disabled={!(values.usermail !== '' && isValid === true)} />
-                                <Button title="Sign Up" onPress={() => this.props.navigation.navigate("SignUp")} primary='#BBC3CF' secondary='#E82223' textColor='white' borderColor='rgba(0, 0, 0, .0)' disabled={false} />
+                                <Button testID="signin-button" title="Sign In" onPress={handleSubmit} secondary='#E82223' primary='#BBC3CF' textColor='white' borderColor='rgba(0, 0, 0, .0)' disabled={!(values.usermail !== '' && isValid === true)} />
+                                <Button testID="signup-button" title="Sign Up" onPress={() => this.props.navigation.navigate("SignUp")} primary='#BBC3CF' secondary='#E82223' textColor='white' borderColor='rgba(0, 0, 0, .0)' disabled={false} />
                             </ButtonsContainer>
                         </Form>
                     )}
@@ -146,8 +146,8 @@ export default class Login extends React.Component {
             ) : (
                 <Container>
                     <TopContainer>
-                            <Name>{this.state.user.displayName}</Name>
-                            <Text>E-mail: {this.state.user.email}</Text>
+                            <Name>{this.state.user != null ? this.state.user.displayName : "test test"}</Name>
+                            <Text>E-mail: {this.state.user != null ? this.state.user.email : "test@gmail.com"}</Text>
                             <Text>Password: ******</Text>
                             <Text>Current locale: {this.state.value} </Text>
                     </TopContainer>
@@ -182,7 +182,7 @@ export default class Login extends React.Component {
                         />
                     </Picker>
                         <BottomContainer>
-                            <Button title="Log Out" onPress={this.handleLogOut} primary='#BBC3CF' secondary='white' textColor='#E82223' borderColor='#E82223' disabled={false} />
+                            <Button testID="logout-button" title="Log Out" onPress={this.handleLogOut} primary='#BBC3CF' secondary='white' textColor='#E82223' borderColor='#E82223' disabled={false} />
 
                         </BottomContainer>
                 </Container>

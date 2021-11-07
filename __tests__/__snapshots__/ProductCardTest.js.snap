@@ -1,0 +1,250 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should match with snapshot 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "backgroundColor": "white",
+        "marginBottom": 5,
+        "marginLeft": 5,
+        "marginRight": 5,
+        "marginTop": 5,
+        "paddingBottom": 10,
+        "paddingLeft": 10,
+        "paddingRight": 10,
+        "paddingTop": 10,
+      },
+    ]
+  }
+  testID="product-card"
+>
+  <View
+    style={
+      Array [
+        Object {
+          "flexDirection": "row",
+        },
+      ]
+    }
+  >
+    <Image
+      source={
+        Object {
+          "uri": "https://lh5.googleusercontent.com/-NUVFE9PlpeM/TWu1toPnthI/AAAAAAAAAAc/Rzj59I3aZj4/s320/villa+foto%25C4%259Fraflar%25C4%25B1.jpg",
+        }
+      }
+      style={
+        Array [
+          Object {
+            "borderRadius": 20,
+            "height": 110,
+            "marginHorizontal": 25,
+            "width": 110,
+          },
+        ]
+      }
+    />
+    <View
+      style={
+        Array [
+          Object {},
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "black",
+              "fontFamily": "Nunito Sans",
+              "fontSize": 20,
+              "fontWeight": "500",
+            },
+          ]
+        }
+      >
+        Villa Bosphorus
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "gray",
+              "fontSize": 14,
+              "marginVertical": 10,
+              "width": 200,
+            },
+          ]
+        }
+      >
+        If you are looking for a bright and comfortable villa you found a right place.
+      </Text>
+      <View
+        style={
+          Array [
+            Object {
+              "flexDirection": "row",
+            },
+          ]
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "flexDirection": "row",
+              },
+            ]
+          }
+        >
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": "#ECD03F",
+                  "fontSize": 24,
+                },
+                undefined,
+                Object {
+                  "fontFamily": "FontAwesome",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "black",
+                  "fontSize": 16,
+                  "fontWeight": "300",
+                  "marginLeft": 5,
+                  "marginRight": 15,
+                },
+              ]
+            }
+          >
+            4
+          </Text>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "flexDirection": "row",
+              },
+            ]
+          }
+        >
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": "#0DAFC0",
+                  "fontSize": 22,
+                },
+                undefined,
+                Object {
+                  "fontFamily": "Ionicons",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "black",
+                  "fontSize": 16,
+                  "fontWeight": "300",
+                  "marginLeft": 5,
+                  "marginRight": 15,
+                },
+              ]
+            }
+          >
+            81
+             km
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+  <View
+    accessible={true}
+    focusable={false}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "white",
+        "justifyContent": "center",
+        "marginTop": 15,
+        "opacity": 1,
+      }
+    }
+    testID="sepete-ekle"
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "flexDirection": "row",
+          },
+        ]
+      }
+    >
+      <Image
+        source={
+          Object {
+            "testUri": "../../../src/assets/Vector.png",
+          }
+        }
+        style={
+          Array [
+            Object {
+              "height": 25,
+              "resizeMode": "contain",
+              "width": 25,
+            },
+          ]
+        }
+      />
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#E82223",
+              "fontSize": 18,
+              "fontWeight": "700",
+              "marginLeft": 10,
+            },
+          ]
+        }
+        testID="button-text"
+      >
+        SEPETTEN ÇIKAR
+      </Text>
+    </View>
+  </View>
+</View>
+`;

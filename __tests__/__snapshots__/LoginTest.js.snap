@@ -1,0 +1,291 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should match with snapshot 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "backgroundColor": "white",
+        "flexBasis": 0,
+        "flexGrow": 1,
+        "flexShrink": 1,
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "alignSelf": "center",
+          "marginBottom": 15,
+          "marginTop": 25,
+          "width": "85%",
+        },
+      ]
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "black",
+            "fontSize": 30,
+            "fontWeight": "800",
+            "marginVertical": 10,
+          },
+        ]
+      }
+    >
+      Account
+    </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "white",
+          "flexBasis": 0,
+          "flexGrow": 1,
+          "flexShrink": 1,
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignSelf": "center",
+            "marginBottom": 15,
+            "marginTop": 25,
+            "width": "85%",
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "black",
+              "fontSize": 34,
+              "fontWeight": "bold",
+              "marginBottom": 20,
+            },
+          ]
+        }
+      >
+        test test
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "black",
+              "fontSize": 16,
+              "marginVertical": 2,
+            },
+          ]
+        }
+      >
+        E-mail: 
+        test@gmail.com
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "black",
+              "fontSize": 16,
+              "marginVertical": 2,
+            },
+          ]
+        }
+      >
+        Password: ******
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "black",
+              "fontSize": 16,
+              "marginVertical": 2,
+            },
+          ]
+        }
+      >
+        Current locale: 
+        TR
+         
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "alignSelf": "center",
+            "borderBottomWidth": 2,
+            "borderColor": "#64738C",
+            "width": "85%",
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "width": "100%",
+            },
+            Object {
+              "zIndex": 5000,
+            },
+            Object {},
+            false,
+          ]
+        }
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          forwardedRef={[Function]}
+          onClick={[Function]}
+          onLayout={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "alignSelf": "center",
+              "backgroundColor": "white",
+              "borderColor": "white",
+              "borderRadius": 8,
+              "borderWidth": 1,
+              "flexDirection": "row",
+              "height": 40,
+              "justifyContent": "space-between",
+              "marginTop": 10,
+              "opacity": 1,
+              "paddingHorizontal": 10,
+              "width": "100%",
+              "zIndex": 5000,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "flex": 1,
+                },
+                Object {},
+                Object {
+                  "fontSize": 16,
+                },
+                false,
+              ]
+            }
+          >
+            Türkçe
+          </Text>
+          <View
+            style={
+              Array [
+                Object {
+                  "marginLeft": 10,
+                },
+                Object {},
+              ]
+            }
+          >
+            <Image
+              source={
+                Object {
+                  "testUri": "../../react-native-dropdown-picker/src/themes/light/icons/arrow-down.png",
+                }
+              }
+              style={
+                Array [
+                  Object {
+                    "height": 20,
+                    "width": 20,
+                  },
+                  Object {},
+                ]
+              }
+            />
+          </View>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "flexBasis": 0,
+            "flexGrow": 1,
+            "flexShrink": 1,
+            "justifyContent": "flex-end",
+            "marginBottom": 60,
+          },
+        ]
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "alignSelf": "center",
+            "backgroundColor": "white",
+            "borderColor": "#E82223",
+            "borderRadius": 12,
+            "borderWidth": 1,
+            "height": 50,
+            "justifyContent": "center",
+            "marginVertical": 10,
+            "opacity": 1,
+            "paddingBottom": 12,
+            "paddingLeft": 12,
+            "paddingRight": 12,
+            "paddingTop": 12,
+            "width": "85%",
+          }
+        }
+        testID="button-touchable"
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#E82223",
+                "fontSize": 14,
+                "textAlign": "center",
+              },
+            ]
+          }
+          testID="button-title"
+          textColor="#E82223"
+        >
+          Log Out
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
