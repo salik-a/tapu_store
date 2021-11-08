@@ -1,9 +1,9 @@
-import React from 'react';
-import { Text, View } from 'react-native';
+import React, { useState } from 'react';
+
 import ProductCard from '../../components/productCard/ProductCard';
 import useFetch from '../../hooks/useFetch';
 import { useDispatch, useSelector } from "react-redux";
-import { Container, List } from './ListStyle';
+import { Container, List, Center, ActivityIndicator, Header, Text } from './ListStyled';
 import TotalCard from '../../components/totalCard/TotalCard';
 
 const ListScreen = () => {
@@ -11,24 +11,26 @@ const ListScreen = () => {
     const idList = useSelector(selector => selector.basket);
     const dispatch = useDispatch()
 
+    const [url, setUrl] = useState("https://61827de284c2020017d89eba.mockapi.io/tapu/products")
     //when the page opens, we pull the data from the url address
-    const { error, loading, data } = useFetch("https://61827de284c2020017d89eba.mockapi.io/tapu/products")
+    const { error, loading, data } = useFetch(url)
 
     // loading part is displayed while loading data
     if (loading) {
         return (
-            <View>
-                <Text>loading</Text>
-            </View>
+            <Center>
+                <ActivityIndicator size="large" color="#00ff00" />
+            </Center>
         )
     }
 
     //Error part is shown when data cannot be loaded
     if (error) {
         return (
-            <View>
-                <Text>error</Text>
-            </View>
+            <Center>
+                <Header>Oops!</Header>
+                <Text>There's an error</Text>
+            </Center>
         )
     };
 
