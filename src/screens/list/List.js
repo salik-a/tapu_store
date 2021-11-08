@@ -11,9 +11,9 @@ const ListScreen = () => {
     const idList = useSelector(selector => selector.basket);
     const dispatch = useDispatch()
 
-    const [url, setUrl] = useState("https://61827de284c2020017d89eba.mockapi.io/tapu/products")
+
     //when the page opens, we pull the data from the url address
-    const { error, loading, data } = useFetch(url)
+    const { error, loading, data } = useFetch("https://61827de284c2020017d89eba.mockapi.io/tapu/products")
 
     // loading part is displayed while loading data
     if (loading) {
@@ -35,7 +35,7 @@ const ListScreen = () => {
     };
 
 
-    //Clicking on the character redirects to the character detail page
+
     function handlePress(item) {
         const id = item.id;
         const price = item.price;
@@ -49,7 +49,7 @@ const ListScreen = () => {
         }
     }
 
-    // charactercard is used to display each character
+
     const renderItem = ({ item }) => (
         <ProductCard data={item} onPress={() => handlePress(item)} idList={idList} />
     );
