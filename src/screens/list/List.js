@@ -35,7 +35,7 @@ const ListScreen = () => {
     };
 
 
-
+    // add products id and prices to array using redux
     function handlePress(item) {
         const id = item.id;
         const price = item.price;
